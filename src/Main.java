@@ -24,17 +24,17 @@ public class Main {
                 case 1:
                     insertarEquipo(nuevaLiga, scanner);
                     break;
-                case 2:
-                    insertarJugador(nuevaLiga, scanner);
-                    break;
-                case 3:
-                    verLiga(nuevaLiga, scanner);
-                    break;
-                case 4:
-                    verJugadores(nuevaLiga, scanner);
-                    break;
-                case 5:
-                    venderJugador(nuevaLiga, scanner);
+//                case 2:
+//                    insertarJugador(nuevaLiga, scanner);
+//                    break;
+//                case 3:
+//                    verLiga(nuevaLiga, scanner);
+//                    break;
+//                case 4:
+//                    verJugadores(nuevaLiga, scanner);
+//                    break;
+//                case 5:
+//                    venderJugador(nuevaLiga, scanner);
             }
         }
         while (opcion != 6);
@@ -43,6 +43,7 @@ public class Main {
     public static void insertarEquipo(Liga liga, Scanner scanner){
         System.out.println("Inserte el nombre del equipo:");
         String nombreEquipo = scanner.nextLine();
+        scanner.nextInt();
         System.out.println("Inserte la ciudad del equipo: ");
         String ciudadEquipo = scanner.nextLine();
         System.out.println("Creando equipo...");
