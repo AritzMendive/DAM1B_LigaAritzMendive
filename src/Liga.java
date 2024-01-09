@@ -39,11 +39,16 @@ public class Liga {
     }
 
     public void anadirEquipo(Equipo equipo){
+        if(getNumEquipos() != 0){
         for (int i = 0; i < ListadoEquipos.length; i++){
             if (ListadoEquipos[i] == null){
                 ListadoEquipos[i] = equipo;
+                System.out.println("Equipo"+ equipo.getNombre() +"insertado");
                 break;
+                }
             }
+        }else{
+            System.out.println("Error: La liga está llena");
         }
     }
 }
