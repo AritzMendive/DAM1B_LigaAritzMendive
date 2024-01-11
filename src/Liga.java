@@ -27,8 +27,9 @@ public class Liga {
     public Equipo getEquipo(String nombreEquipo){
         int posicion = 0;
         for (int i=0; i < ListadoEquipos.length; i++){
-            if (ListadoEquipos[i].getNombre() == nombreEquipo){
+            if (ListadoEquipos[i] != null && ListadoEquipos[i].getNombre().equals(nombreEquipo)) {
                 posicion = i;
+                break;
             }
         }
         return ListadoEquipos[posicion];
@@ -39,11 +40,11 @@ public class Liga {
     }
 
     public void anadirEquipo(Equipo equipo){
-        if(getNumEquipos() != 0){
+        if(getNumEquipos() < numMaxEquipos){
         for (int i = 0; i < ListadoEquipos.length; i++){
             if (ListadoEquipos[i] == null){
                 ListadoEquipos[i] = equipo;
-                System.out.println("Equipo"+ equipo.getNombre() +"insertado");
+                System.out.println("Equipo "+ equipo.getNombre() +" insertado");
                 break;
                 }
             }

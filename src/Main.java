@@ -24,9 +24,9 @@ public class Main {
                 case 1:
                     insertarEquipo(nuevaLiga, scanner);
                     break;
-//                case 2:
-//                    insertarJugador(nuevaLiga, scanner);
-//                    break;
+                case 2:
+                    insertarJugador(nuevaLiga, scanner);
+                    break;
 //                case 3:
 //                    verLiga(nuevaLiga, scanner);
 //                    break;
@@ -41,15 +41,36 @@ public class Main {
     }
 
     public static void insertarEquipo(Liga liga, Scanner scanner){
+        scanner.nextLine();
         System.out.println("Inserte el nombre del equipo:");
         String nombreEquipo = scanner.nextLine();
-        scanner.nextInt();
-        System.out.println("Inserte la ciudad del equipo: ");
+        System.out.println("Inserte la ciudad del equipo:");
         String ciudadEquipo = scanner.nextLine();
         System.out.println("Creando equipo...");
         Equipo nuevoEquipo = new Equipo(nombreEquipo, ciudadEquipo);
         System.out.println("Insertando equipo...");
         liga.anadirEquipo(nuevoEquipo);
+        System.out.println("");
     }
 
+    public static void insertarJugador(Liga liga, Scanner scanner){
+        scanner.nextLine();
+        System.out.println("Indique el nombre del equipo donde quiere insertar el jugador:");
+        String nombreEquipo = scanner.nextLine();
+        System.out.println("Indique el nombre del jugador:");
+        String nombreJugador = scanner.nextLine();
+        System.out.println("Indique la nacionalidad del jugador");
+        String nacionalidadJugador = scanner.nextLine();
+        System.out.println("Indique la edad del jugador:");
+        int edadJugador = scanner.nextInt();
+        System.out.println("Indique la posicion del jugador:");
+        scanner.nextLine();
+        String posicionJugador = scanner.nextLine();
+        System.out.println("Creando jugador...");
+        Jugador jugador = new Jugador(nombreJugador, nacionalidadJugador, edadJugador, posicionJugador);
+        System.out.println("Insertando jugador...");
+        Equipo miEquipoliga = liga.getEquipo(nombreEquipo);
+        miEquipoliga.adquirirJugador(jugador);
+
+    }
 }

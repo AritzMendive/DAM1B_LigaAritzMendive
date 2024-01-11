@@ -33,7 +33,10 @@ public class Equipo {
         for(int i = 0; i< ListaJugadores.length; i++){
             if (ListaJugadores[i] == null){
                 ListaJugadores[i] = nuevoJugador;
+                System.out.println("Jugador " + nuevoJugador.getNombre() + " insertado en " + getNombre());
                 break;
+            }else{
+                System.out.println("El equipo está lleno.");
             }
         }
     }
