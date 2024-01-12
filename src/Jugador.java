@@ -9,11 +9,7 @@ public class Jugador {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.edad = edad;
-        if ("POR".equals(posicion) || "DEF".equals(posicion) || "CTC".equals(posicion) || "DEL".equals(posicion)) {
-            this.posicion = posicion;
-        }else{
-            System.out.println("ERROR: formato de posicion incorrecto");
-        }
+        this.posicion = posicion;
         this.lesionado = false;
     }
 

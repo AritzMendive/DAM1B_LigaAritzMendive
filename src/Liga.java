@@ -25,14 +25,12 @@ public class Liga {
     }
 
     public Equipo getEquipo(String nombreEquipo){
-        int posicion = 0;
         for (int i=0; i < ListadoEquipos.length; i++){
             if (ListadoEquipos[i] != null && ListadoEquipos[i].getNombre().equals(nombreEquipo)) {
-                posicion = i;
-                break;
+                return ListadoEquipos[i];
             }
         }
-        return ListadoEquipos[posicion];
+        return null;
     }
 
     public String getPais() {

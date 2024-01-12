@@ -57,19 +57,32 @@ public class Main {
         scanner.nextLine();
         System.out.println("Indique el nombre del equipo donde quiere insertar el jugador:");
         String nombreEquipo = scanner.nextLine();
+        Equipo miEquipoliga = liga.getEquipo(nombreEquipo);
+        if (miEquipoliga == null) {
+            System.out.println("El equipo indicado no existe.");
+            return;
+        }
         System.out.println("Indique el nombre del jugador:");
         String nombreJugador = scanner.nextLine();
         System.out.println("Indique la nacionalidad del jugador");
         String nacionalidadJugador = scanner.nextLine();
         System.out.println("Indique la edad del jugador:");
         int edadJugador = scanner.nextInt();
-        System.out.println("Indique la posicion del jugador:");
         scanner.nextLine();
-        String posicionJugador = scanner.nextLine();
+        String posicionJugador;
+        boolean posicionValida = false;
+        do {
+            System.out.println("Indique la posicion del jugador:");
+            posicionJugador = scanner.nextLine();
+            if ("POR".equals(posicionJugador) || "DEF".equals(posicionJugador) || "CTC".equals(posicionJugador) || "DEL".equals(posicionJugador)) {
+                posicionValida = true;
+            } else {
+                System.out.println("Posición no válida.");
+            }
+        } while (!posicionValida);
         System.out.println("Creando jugador...");
         Jugador jugador = new Jugador(nombreJugador, nacionalidadJugador, edadJugador, posicionJugador);
         System.out.println("Insertando jugador...");
-        Equipo miEquipoliga = liga.getEquipo(nombreEquipo);
         miEquipoliga.adquirirJugador(jugador);
 
     }
