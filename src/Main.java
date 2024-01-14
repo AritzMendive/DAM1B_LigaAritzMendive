@@ -27,14 +27,14 @@ public class Main {
                 case 2:
                     insertarJugador(nuevaLiga, scanner);
                     break;
-//                case 3:
-//                    verLiga(nuevaLiga, scanner);
-//                    break;
-//                case 4:
-//                    verJugadores(nuevaLiga, scanner);
-//                    break;
-//                case 5:
-//                    venderJugador(nuevaLiga, scanner);
+                case 3:
+                    VerLiga(nuevaLiga, scanner);
+                    break;
+                case 4:
+                    verJugadores(nuevaLiga, scanner);
+                    break;
+                case 5:
+                    venderJugador(nuevaLiga, scanner);
             }
         }
         while (opcion != 6);
@@ -86,4 +86,70 @@ public class Main {
         miEquipoliga.adquirirJugador(jugador);
 
     }
+
+    public static void VerLiga(Liga liga, Scanner scanner){
+        System.out.println("**********COMPOSICIÓN DE LA LIGA*************************");
+        System.out.printf("%-20s %-20s %-15s\n", "EQUIPO", "CIUDAD", "NUMERO JUGADORES");
+        liga.mostrarListadoEquipos();
+        System.out.println("*********************************************************");
+
+    }
+
+    public static void verJugadores(Liga liga, Scanner scanner){
+        scanner.nextLine();
+        System.out.println("Indique el equipo que quiere visualizar:");
+        String nomEquipo = scanner.nextLine();
+        Equipo equipo = liga.getEquipo(nomEquipo);
+        if(equipo == null){
+            System.out.println("El equipo indicado no existe.");
+            return;
+        }
+        System.out.println("********* " + equipo.getNombre() + " ****************************");
+        System.out.printf("%-20s %-10s %-4s %-10s %-8s\n", "NOMBRE", "POSICIÓN", "EDAD", "NAC", "LESIONADO");
+        equipo.mostrarListaJugadores();
+        System.out.println("*****************************************************************");
+
+    }
+
+    public static void venderJugador(Liga liga, Scanner scanner){
+        scanner.nextLine();
+        System.out.println("Inserte el nombre del equipo donde quiere vender el jugador:");
+        String nomEquipo = scanner.nextLine();
+        Equipo equipo = liga.getEquipo(nomEquipo);
+        if (equipo == null) {
+            System.out.println("El equipo indicado no existe.");
+            return;
+        }
+        System.out.println("Inserte el nombre del jugador: ");
+        String nomJugador = scanner.nextLine();
+        equipo.venderJugador(nomJugador);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

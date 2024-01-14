@@ -10,8 +10,12 @@ public class Liga {
 
     public void mostrarListadoEquipos(){
         for (int i = 0; i < ListadoEquipos.length; i++){
-            System.out.println("Equipo " + i + ": " + ListadoEquipos[i].getNombre());
-        }
+            if (ListadoEquipos[i] != null) {
+                System.out.printf("%-20s %-20s %-15s\n",
+                        ListadoEquipos[i].getNombre(),
+                        ListadoEquipos[i].getCiudad(),
+                        ListadoEquipos[i].getNumJugadores());
+            }        }
     }
 
     public int getNumEquipos(){
